@@ -1,0 +1,16 @@
+
+<div class="grid-list-container">
+    <button *ngIf="showClearButton && selectedItemsCount > 0" type='button' (click) ='clear()'>X</button>
+    <mat-grid-list cols="7" height="1rem">
+      <mat-grid-tile
+      *ngFor="let item of gridItems"
+      [ngClass]="{
+        'selectedGridItem': item.selected,
+        'defaultGridItem': !item.selected,
+        'gridItem': true
+      }"
+      (click)="toggleStatus(item)">{{item.label}}</mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  
+  

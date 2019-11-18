@@ -1,0 +1,53 @@
+$primaryColor: #0393be;
+$secondaryColor: white;
+
+$hover-color: #c8c9ca;
+
+$grid-item-selected-color: $primaryColor;
+$grid-item-selected-text-color: white;
+$grid-item-default-color: $secondaryColor;
+$grid-item-default-text-color: black;
+$grid-item-hover-color: #c8c9ca;
+
+
+.grid-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+
+.grid-list-container button {
+    align-self: flex-start;
+    background-color: white;
+}
+.grid-list-container button:hover {
+    cursor: pointer;
+    background-color: $hover-color;
+}
+
+mat-grid-tile:hover {
+    cursor: pointer;
+}
+
+mat-grid-tile.mat-grid-tile .mat-figure {
+    // padding: 20px;
+}
+
+.gridItem {
+    text-align: center;
+}
+
+.defaultGridItem:hover {
+    background-color: $grid-item-hover-color;
+}
+
+.selectedGridItem {
+    background-color: $grid-item-selected-color;
+    color: $grid-item-selected-text-color;
+}
+
+.defaultGridItem {
+    background-color: $grid-item-default-color;
+    color: $grid-item-default-text-color;
+}

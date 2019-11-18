@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "mat-multi-select-grid": [
+        "dist/mat-multi-select-grid"
+      ],
+      "mat-multi-select-grid/*": [
+        "dist/mat-multi-select-grid/*"
+      ]
+    }
   }
 }
