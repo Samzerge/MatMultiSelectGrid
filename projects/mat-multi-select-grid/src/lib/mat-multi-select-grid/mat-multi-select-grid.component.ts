@@ -30,6 +30,7 @@ export class MatMultiSelectGridComponent implements OnInit, ControlValueAccessor
   @Input() pipeToApply: PipeTransform;
 
   gridItems = [];
+  value: any[] = [];
   selectedItemsCount = 0;
 
   @Output() addEvent: EventEmitter<any> = new EventEmitter();
@@ -53,10 +54,6 @@ export class MatMultiSelectGridComponent implements OnInit, ControlValueAccessor
   mapToGridItemList(listItems: any[], bindLabel: string): GridItem[] {
       return listItems.map(item => {
           let labelText = bindLabel == null ? item : item[bindLabel];
-          console.log(this.TAG + 'labelText');
-          console.dir(bindLabel);
-          console.dir(labelText);
-
 
           if (this.pipeToApply != null) {
             labelText = this.pipeToApply.transform(labelText);
@@ -67,31 +64,10 @@ export class MatMultiSelectGridComponent implements OnInit, ControlValueAccessor
       });
   }
 
-  writeValue(value: any[]) {
-      console.log(this.TAG + 'writeValue');
-      console.dir(value);
-      if (value != null) {
-          // const selectedGridItems = this.mapToGridItemList(value, this.bindLabel);
-
-          value.forEach(item => {
-              const foundItems = this.gridItems.filter(originalItem => {
-                  return originalItem.originalValue === item;
-              });
-
-              if (foundItems.length > 0) {
-                  foundItems[0].selected = true;
-              }
-          });
-
-          console.log('written value for exisiting list');
-          console.dir(this.gridItems);
-      }
-  }
 
   toggleStatus(gridItem: GridItem) {
-      console.log(this.TAG + 'toggleStatus');
       gridItem.selected = !gridItem.selected;
-      this.change(gridItem);
+      this.changeInValue();
 
       if (gridItem.selected) {
           this.addEvent.emit(gridItem);
@@ -101,13 +77,14 @@ export class MatMultiSelectGridComponent implements OnInit, ControlValueAccessor
   }
 
   clear() {
-    console.log(this.TAG + 'clear');
       this.gridItems.forEach(item => {
           item.selected = false;
       });
+      this.selectedItemsCount = 0;
+      this.changeInValue();
 
       this.clearEvent.emit();
-      this.selectedItemsCount = 0;
+
   }
 
   getSelectedGridItems(): GridItem[] {
@@ -122,12 +99,28 @@ export class MatMultiSelectGridComponent implements OnInit, ControlValueAccessor
       });
   }
 
-  change(value: any) {
-      console.log(this.TAG + 'change');
+  writeValue(value: any[]) {
+    if (value != null) {
+        // const selectedGridItems = this.mapToGridItemList(value, this.bindLabel);
+
+        value.forEach(item => {
+            const foundItems = this.gridItems.filter(originalItem => {
+                return originalItem.originalValue === item;
+            });
+
+            if (foundItems.length > 0) {
+                foundItems[0].selected = true;
+            }
+        });
+    }
+}
+
+  changeInValue() {
       const selectedItems = this.getSelectedGridItems();
       this.selectedItemsCount = selectedItems.length;
 
-      this.onChange(this.getOriginalItemsFromGridItems(selectedItems));
+      this.value = this.getOriginalItemsFromGridItems(selectedItems);
+      this.onChange(this.value);
   }
 
   registerOnChange(fn: any) {
