@@ -22,6 +22,11 @@ export class MatMultiSelectGridComponent implements OnInit, ControlValueAccessor
   disabled = false;
 
   // @Input() listItems$: Observable<any[]>;
+
+  @Input() rowHeight  = '1:1';
+  @Input() columnsNumber: number;
+  @Input() gutterSize = '1px';
+
   @Input() bindLabel;
   @Input() showClearButton: boolean;
 

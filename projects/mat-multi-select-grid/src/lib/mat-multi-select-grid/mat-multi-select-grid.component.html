@@ -1,7 +1,7 @@
 
 <div class="grid-list-container">
     <button *ngIf="showClearButton && selectedItemsCount > 0" type='button' (click) ='clear()'>X</button>
-    <mat-grid-list cols="7" height="1rem">
+    <mat-grid-list cols="{{columnsNumber}}" rowHeight="{{rowHeight}}" gutterSize="{{gutterSize}}">
       <mat-grid-tile
       *ngFor="let item of gridItems"
       [ngClass]="{
