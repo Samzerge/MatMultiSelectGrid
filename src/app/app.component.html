@@ -7,35 +7,51 @@
 </lib-mat-multi-select-grid>  -->
 
 <!--Template forms example-->
-<label>Template forms example</label>
-<lib-mat-multi-select-grid
-    [(ngModel)] = "selectedNumbers"
-    [listItems] = "numberList$ | async"
-    [showClearButton]="true"
-    (addEvent)="onMonthDayAdded($event)"
-    (removeEvent)="onMonthDayRemoved($event)"
-    (clearEvent)="onMonthDayClear()">
-</lib-mat-multi-select-grid> 
-\
-<!--Pipe example-->
-<label>Pipe example</label>
-<lib-mat-multi-select-grid
-    [listItems] = "weeksList$ | async"
-    [showClearButton]="true"
-    [pipeToApply]="usedPipe">
-</lib-mat-multi-select-grid> 
-
-<!--Reactive forms example-->
-<label>Reactive forms example</label>
-<form [formGroup]="formGroup">
+<div class="example">
+    <label>Template forms example</label>
     <lib-mat-multi-select-grid
-        formControlName="selectedHero"
-        [listItems] = "heroesList$ | async"
+        [(ngModel)] = "selectedNumbers"
+        [rowHeight] ="'100px'"
+        [columnsNumber] = "10"
+        [gutterSize] ="'1px'"
+        [listItems] = "numberList$ | async"
         [showClearButton]="true"
         (addEvent)="onMonthDayAdded($event)"
         (removeEvent)="onMonthDayRemoved($event)"
         (clearEvent)="onMonthDayClear()">
-    </lib-mat-multi-select-grid>   
-</form>
+    </lib-mat-multi-select-grid> 
+</div>
+\
+<!--Pipe example-->
+<div class="example">
+    <label>Pipe example</label>
+    <lib-mat-multi-select-grid
+        [rowHeight] ="'1:2'"
+        [columnsNumber] = "5"
+        [gutterSize] ="'10px'"
+        [listItems] = "weeksList$ | async"
+        [showClearButton]="true"
+        [pipeToApply]="usedPipe">
+    </lib-mat-multi-select-grid> 
+</div>
+
+<!--Reactive forms example-->
+
+<div class="example">
+    
+    <label>Reactive forms example</label>
+    <form [formGroup]="formGroup">
+        <lib-mat-multi-select-grid
+            formControlName="selectedHero"
+            [rowHeight] ="'4:3'"
+            [columnsNumber] = "2"
+            [listItems] = "heroesList$ | async"
+            [showClearButton]="true"
+            (addEvent)="onMonthDayAdded($event)"
+            (removeEvent)="onMonthDayRemoved($event)"
+            (clearEvent)="onMonthDayClear()">
+        </lib-mat-multi-select-grid>   
+    </form>
+</div>
 
 
