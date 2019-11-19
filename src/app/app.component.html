@@ -11,7 +11,7 @@
 <lib-mat-multi-select-grid
     [(ngModel)] = "selectedNumbers"
     [listItems] = "numberList$ | async"
-    [showClearButton]="showClearButton"
+    [showClearButton]="true"
     (addEvent)="onMonthDayAdded($event)"
     (removeEvent)="onMonthDayRemoved($event)"
     (clearEvent)="onMonthDayClear()">
@@ -21,21 +21,21 @@
 <label>Pipe example</label>
 <lib-mat-multi-select-grid
     [listItems] = "weeksList$ | async"
-    [showClearButton]="showClearButton"
+    [showClearButton]="true"
     [pipeToApply]="usedPipe">
 </lib-mat-multi-select-grid> 
 
 <!--Reactive forms example-->
 <label>Reactive forms example</label>
 <form [formGroup]="formGroup">
-    <app-grid-list
-        formControlName="selectedHero" 
+    <lib-mat-multi-select-grid
+        formControlName="selectedHero"
         [listItems] = "heroesList$ | async"
-        [showClearButton]="false"
+        [showClearButton]="true"
         (addEvent)="onMonthDayAdded($event)"
         (removeEvent)="onMonthDayRemoved($event)"
         (clearEvent)="onMonthDayClear()">
-    </app-grid-list>   
+    </lib-mat-multi-select-grid>   
 </form>
 
 
