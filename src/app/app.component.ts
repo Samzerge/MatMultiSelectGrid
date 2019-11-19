@@ -1,8 +1,9 @@
 
-import { Component } from '@angular/core';
+import { Component, PipeTransform } from '@angular/core';
 import { MatMultiSelectGridComponent } from 'projects/mat-multi-select-grid/src/public_api';
 import { BehaviorSubject } from 'rxjs';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { WeekDayPipe } from './week-day.pipe';
 
 
 @Component({
@@ -15,14 +16,17 @@ export class AppComponent {
   comp: MatMultiSelectGridComponent;
 
   formGroup: FormGroup;
-  selectedNumber: number;
+  selectedNumbers: number[];
   showClearButton = true;
+  usedPipe: PipeTransform;
 
   numberList$: BehaviorSubject<any[]>;
+  weeksList$: BehaviorSubject<any[]>;
   heroesList$: BehaviorSubject<any[]>;
 
   constructor(private formBuilder: FormBuilder) {
     const numberList = Array.from(Array(50), (_, x) => x + 1);
+    const weeksList = Array.from(Array(7), (_, x) => x + 1);
     const heroesList = ['Spiderman', 'Ironman', 'Thor', 'Hulk',
     'Captain America', 'Black Widow', 'Hawkeye', 'Dr.Strange', 'Starlord', 'Rocket Racoon', 'Gamora', 'Groot', 'Drax'];
 
@@ -32,9 +36,12 @@ export class AppComponent {
     // ];
 
     this.numberList$ = new BehaviorSubject(numberList);
+    this.weeksList$ = new BehaviorSubject(weeksList);
     this.heroesList$ = new BehaviorSubject(heroesList);
 
     this.formGroup = this.createFormGroup();
+
+    this.usedPipe = new WeekDayPipe();
   }
 
   createFormGroup() {
@@ -48,14 +55,14 @@ export class AppComponent {
 
   onMonthDayAdded(value) {
     console.log('onMonthDayAdded');
-    console.dir(value);
+    // console.dir(value);
+
   }
 
   onMonthDayRemoved(value) {
     console.log('onMonthDayRemoved');
-    console.dir(value);
+    // console.dir(value);
 
-    console.dir(this.selectedNumber);
   }
 
   onMonthDayClear() {

@@ -1,33 +1,41 @@
 <!-- <lib-mat-multi-select-grid
     [listItems] = "numberList$ | async"
     [showClearButton]="showClearButton"
-    (onAdd)="onMonthDayAdded($event)"
-    (onRemove)="onMonthDayRemoved($event)"
-    (onClear)="onMonthDayClear()">
+    (addEvent)="onMonthDayAdded($event)"
+    (removeEvent)="onMonthDayRemoved($event)"
+    (clearEvent)="onMonthDayClear()">
 </lib-mat-multi-select-grid>  -->
 
-<!-- [pipeToApply]="gridListPipe" -->
-
 <!--Template forms example-->
+<label>Template forms example</label>
 <lib-mat-multi-select-grid
-    [(ngModel)] = "selectedNumber"
+    [(ngModel)] = "selectedNumbers"
     [listItems] = "numberList$ | async"
     [showClearButton]="showClearButton"
-    (onAdd)="onMonthDayAdded($event)"
-    (onRemove)="onMonthDayRemoved($event)"
-    (onClear)="onMonthDayClear()">
+    (addEvent)="onMonthDayAdded($event)"
+    (removeEvent)="onMonthDayRemoved($event)"
+    (clearEvent)="onMonthDayClear()">
+</lib-mat-multi-select-grid> 
+\
+<!--Pipe example-->
+<label>Pipe example</label>
+<lib-mat-multi-select-grid
+    [listItems] = "weeksList$ | async"
+    [showClearButton]="showClearButton"
+    [pipeToApply]="usedPipe">
 </lib-mat-multi-select-grid> 
 
 <!--Reactive forms example-->
-<!-- <form [formGroup]="formGroup">
+<label>Reactive forms example</label>
+<form [formGroup]="formGroup">
     <app-grid-list
         formControlName="selectedHero" 
         [listItems] = "heroesList$ | async"
         [showClearButton]="false"
-        (onAdd)="onMonthDayAdded($event)"
-        (onRemove)="onMonthDayRemoved($event)"
-        (onClear)="onMonthDayClear()">
+        (addEvent)="onMonthDayAdded($event)"
+        (removeEvent)="onMonthDayRemoved($event)"
+        (clearEvent)="onMonthDayClear()">
     </app-grid-list>   
-</form> -->
+</form>
 
 

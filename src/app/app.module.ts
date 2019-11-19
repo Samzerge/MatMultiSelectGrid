@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMultiSelectGridModule } from 'projects/mat-multi-select-grid/src/public_api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { WeekDayPipe } from './week-day.pipe';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WeekDayPipe
   ],
   imports: [
     BrowserModule,
@@ -18,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatMultiSelectGridModule
   ],
-  providers: [],
+  providers: [WeekDayPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
