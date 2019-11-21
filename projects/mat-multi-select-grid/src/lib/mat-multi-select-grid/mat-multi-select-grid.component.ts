@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, forwardRef, PipeTransform, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { GridItem } from '../grid-item';
+import { findNestedPropertyValue } from '../util';
 
 @Component({
   selector: 'lib-mat-multi-select-grid',
@@ -20,8 +21,6 @@ export class MatMultiSelectGridComponent implements OnInit, ControlValueAccessor
   TAG = MatMultiSelectGridComponent.name + ': ';
 
   disabled = false;
-
-  // @Input() listItems$: Observable<any[]>;
 
   @Input() rowHeight  = '1:1';
   @Input() columnsNumber: number;
@@ -48,24 +47,28 @@ export class MatMultiSelectGridComponent implements OnInit, ControlValueAccessor
   constructor() {}
 
   ngOnInit() {
-      // console.log(this.TAG + 'ngOnInit');
 
       this.gridItems = this.mapToGridItemList(this.listItems, this.bindLabel);
 
-      // console.dir(this.listItems);
-      // console.dir(this.gridItems);
   }
 
   mapToGridItemList(listItems: any[], bindLabel: string): GridItem[] {
       return listItems.map(item => {
-          let labelText = bindLabel == null ? item : item[bindLabel];
 
-          if (this.pipeToApply != null) {
+        let labelText = item;
+
+        if (bindLabel != null) {
+            const propertiesArray = bindLabel.split('.');
+            const propertyValue = findNestedPropertyValue(item, propertiesArray, 0);
+            labelText = propertyValue;
+        }
+
+        if (this.pipeToApply != null) {
             labelText = this.pipeToApply.transform(labelText);
-          }
+        }
 
-          const gridItem = { originalValue: item, label: labelText, selected: false };
-          return gridItem;
+        const gridItem = { originalValue: item, label: labelText, selected: false };
+        return gridItem;
       });
   }
 
@@ -139,5 +142,6 @@ export class MatMultiSelectGridComponent implements OnInit, ControlValueAccessor
   setDisabledState(isDisabled: boolean): void {
       this.disabled = isDisabled;
   }
+
 }
 
