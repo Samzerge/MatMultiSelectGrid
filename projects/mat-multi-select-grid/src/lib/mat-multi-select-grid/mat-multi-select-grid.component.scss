@@ -1,13 +1,9 @@
-$primaryColor: #0393be;
-$secondaryColor: white;
 
-$hover-color: #c8c9ca;
-
-$grid-item-selected-color: $primaryColor;
-$grid-item-selected-text-color: white;
-$grid-item-default-color: $secondaryColor;
+$grid-item-default-color: white;
 $grid-item-default-text-color: black;
 $grid-item-hover-color: #c8c9ca;
+$grid-item-selected-color: #0393be;
+$grid-item-selected-text-color: white;
 
 
 .grid-list-container {
@@ -23,7 +19,7 @@ $grid-item-hover-color: #c8c9ca;
 }
 .grid-list-container button:hover {
     cursor: pointer;
-    background-color: $hover-color;
+    background-color: $grid-item-hover-color;
 }
 
 mat-grid-tile:hover {
