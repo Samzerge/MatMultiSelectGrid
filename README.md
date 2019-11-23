@@ -4,12 +4,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installation and usage
 1. Run the following command:
-´npm install mat-multi-select-grid´
+```bash
+npm install mat-multi-select-grid
+´´´
 or
-´yarn add mat-multi-select-grid´
+```bash
+yarn add mat-multi-select-grid
+´´´
 
 2. Add MatMultiSelectGridModule to AppModule
-´
+```bash
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,13 +28,13 @@ or
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-´
+´´´
 3. Add the tag mat-multi-select-grid on the desired html file
-´
-    <mat-multi-select-grid
-        [listItems] = "numberList$ | async">
-    </mat-multi-select-grid> 
-´
+```bash
+<mat-multi-select-grid
+    [listItems] = "numberList$ | async">
+</mat-multi-select-grid> 
+´´´
 ## API
 | Input  | Type | Default |  Description |
 | -------- | -------- | -------- |  ------------- |
@@ -50,7 +54,7 @@ export class AppModule { }
 
 ## Examples
 ### Template forms
-´
+```bash
 <mat-multi-select-grid
     [(ngModel)] = "selectedNumbers"
     [rowHeight] ="'100px'"
@@ -62,9 +66,9 @@ export class AppModule { }
     (removeEvent)="onMonthDayRemoved($event)"
     (clearEvent)="onMonthDayClear()">
 </mat-multi-select-grid> 
-´
+´´´
 ### Reactive forms usage
-´
+```bash
 <form [formGroup]="formGroup">
     <mat-multi-select-grid
         formControlName="selectedHero"
@@ -77,9 +81,9 @@ export class AppModule { }
         (clearEvent)="onMonthDayClear()">
     </mat-multi-select-grid>   
 </form>
-´
+´´´
 ### Binding properties
-´
+```bash
 <mat-multi-select-grid
     [rowHeight] ="'100px'"
     [columnsNumber] = "10"
@@ -91,8 +95,8 @@ export class AppModule { }
     (removeEvent)="onMonthDayRemoved($event)"
     (clearEvent)="onMonthDayClear()">
 </mat-multi-select-grid> 
-´
-´
+´´´
+```bash
 <mat-multi-select-grid
     [rowHeight] ="'4:4'"
     [columnsNumber] = "4"
@@ -104,9 +108,9 @@ export class AppModule { }
     (removeEvent)="onMonthDayRemoved($event)"
     (clearEvent)="onMonthDayClear()">
 </mat-multi-select-grid> 
-´
+´´´
 ### Pipe usage
-´
+```bash
 <mat-multi-select-grid
     [rowHeight] ="'1:2'"
     [columnsNumber] = "5"
@@ -115,7 +119,7 @@ export class AppModule { }
     [showClearButton]="true"
     [pipeToApply]="usedPipe">
 </mat-multi-select-grid> 
-´
+´´´
 
 ### License
 
