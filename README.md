@@ -6,11 +6,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 1. Run the following command:
 ```bash
 npm install mat-multi-select-grid
-´´´
+```
 or
 ```bash
 yarn add mat-multi-select-grid
-´´´
+```
 
 2. Add MatMultiSelectGridModule to AppModule
 ```bash
@@ -28,13 +28,13 @@ yarn add mat-multi-select-grid
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-´´´
+```
 3. Add the tag mat-multi-select-grid on the desired html file
 ```bash
 <mat-multi-select-grid
     [listItems] = "numberList$ | async">
 </mat-multi-select-grid> 
-´´´
+```
 ## API
 | Input  | Type | Default |  Description |
 | -------- | -------- | -------- |  ------------- |
@@ -66,7 +66,7 @@ export class AppModule { }
     (removeEvent)="onMonthDayRemoved($event)"
     (clearEvent)="onMonthDayClear()">
 </mat-multi-select-grid> 
-´´´
+```
 ### Reactive forms usage
 ```bash
 <form [formGroup]="formGroup">
@@ -81,7 +81,7 @@ export class AppModule { }
         (clearEvent)="onMonthDayClear()">
     </mat-multi-select-grid>   
 </form>
-´´´
+```
 ### Binding properties
 ```bash
 <mat-multi-select-grid
@@ -95,7 +95,7 @@ export class AppModule { }
     (removeEvent)="onMonthDayRemoved($event)"
     (clearEvent)="onMonthDayClear()">
 </mat-multi-select-grid> 
-´´´
+```
 ```bash
 <mat-multi-select-grid
     [rowHeight] ="'4:4'"
@@ -108,7 +108,7 @@ export class AppModule { }
     (removeEvent)="onMonthDayRemoved($event)"
     (clearEvent)="onMonthDayClear()">
 </mat-multi-select-grid> 
-´´´
+```
 ### Pipe usage
 ```bash
 <mat-multi-select-grid
@@ -119,7 +119,7 @@ export class AppModule { }
     [showClearButton]="true"
     [pipeToApply]="usedPipe">
 </mat-multi-select-grid> 
-´´´
+```
 
 ### License
 
