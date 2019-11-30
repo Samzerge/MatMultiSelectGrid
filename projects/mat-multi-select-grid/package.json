@@ -1,7 +1,7 @@
 {
   "name": "mat-multi-select-grid",
   "email": "sergamz92@gmail.com",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A component made to allow multiple selection on a grid based on Angular Material GridList",
   "author": "Sergio Mendoza",
   "repository": {
@@ -24,13 +24,10 @@
     "multiselect"
   ],
   "license": "MIT",
-  "dependencies": {
-    "@angular/common": "~7.1.0",
-    "@angular/forms": "~7.1.0",
-    "@angular/material": "~7.3.7",
-  },
   "peerDependencies": {
     "@angular/common": "^7.1.0",
-    "@angular/core": "^7.1.0"
+    "@angular/core": "^7.1.0",
+    "@angular/forms": "~7.1.0",
+    "@angular/material": "~7.3.7"
   }
 }

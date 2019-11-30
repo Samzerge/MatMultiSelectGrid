@@ -1,15 +1,15 @@
-<!-- <lib-mat-multi-select-grid
+<!-- <mat-multi-select-grid
     [listItems] = "numberList$ | async"
     [showClearButton]="showClearButton"
     (addEvent)="onMonthDayAdded($event)"
     (removeEvent)="onMonthDayRemoved($event)"
     (clearEvent)="onMonthDayClear()">
-</lib-mat-multi-select-grid>  -->
+</mat-multi-select-grid>  -->
 
 <!--Template forms example-->
 <div class="example">
     <label>Template forms example</label>
-    <lib-mat-multi-select-grid
+    <mat-multi-select-grid
         [(ngModel)] = "selectedNumbers"
         [rowHeight] ="'100px'"
         [columnsNumber] = "10"
@@ -19,14 +19,14 @@
         (addEvent)="onMonthDayAdded($event)"
         (removeEvent)="onMonthDayRemoved($event)"
         (clearEvent)="onMonthDayClear()">
-    </lib-mat-multi-select-grid> 
+    </mat-multi-select-grid> 
 </div>
 <hr/>
 
 <!--Bind property example-->
 <div class="example">
     <label>Bind property example</label>
-    <lib-mat-multi-select-grid
+    <mat-multi-select-grid
         [rowHeight] ="'100px'"
         [columnsNumber] = "10"
         [gutterSize] ="'1px'"
@@ -36,14 +36,14 @@
         (addEvent)="onMonthDayAdded($event)"
         (removeEvent)="onMonthDayRemoved($event)"
         (clearEvent)="onMonthDayClear()">
-    </lib-mat-multi-select-grid> 
+    </mat-multi-select-grid> 
 </div>
 <hr/>
 
 <!--Bind nested property example-->
 <div class="example">
     <label>Bind nested property example</label>
-    <lib-mat-multi-select-grid
+    <mat-multi-select-grid
         [rowHeight] ="'4:4'"
         [columnsNumber] = "4"
         [gutterSize] ="'1px'"
@@ -53,21 +53,21 @@
         (addEvent)="onMonthDayAdded($event)"
         (removeEvent)="onMonthDayRemoved($event)"
         (clearEvent)="onMonthDayClear()">
-    </lib-mat-multi-select-grid> 
+    </mat-multi-select-grid> 
 </div>
 <hr/>
 
 <!--Pipe example-->
 <div class="example">
     <label>Pipe example</label>
-    <lib-mat-multi-select-grid
+    <mat-multi-select-grid
         [rowHeight] ="'1:2'"
         [columnsNumber] = "5"
         [gutterSize] ="'10px'"
         [listItems] = "weeksList$ | async"
         [showClearButton]="true"
         [pipeToApply]="usedPipe">
-    </lib-mat-multi-select-grid> 
+    </mat-multi-select-grid> 
 </div>
 <hr/>
 
@@ -75,7 +75,7 @@
 <div class="example">
     <label>Reactive forms example</label>
     <form [formGroup]="formGroup">
-        <lib-mat-multi-select-grid
+        <mat-multi-select-grid
             formControlName="selectedHero"
             [rowHeight] ="'4:3'"
             [columnsNumber] = "2"
@@ -84,7 +84,7 @@
             (addEvent)="onMonthDayAdded($event)"
             (removeEvent)="onMonthDayRemoved($event)"
             (clearEvent)="onMonthDayClear()">
-        </lib-mat-multi-select-grid>   
+        </mat-multi-select-grid>   
     </form>
 </div>
 <hr/>

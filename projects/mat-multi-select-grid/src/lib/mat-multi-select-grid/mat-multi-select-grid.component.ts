@@ -4,7 +4,7 @@ import { GridItem } from '../grid-item';
 import { findNestedPropertyValue } from '../util';
 
 @Component({
-  selector: 'lib-mat-multi-select-grid',
+  selector: 'mat-multi-select-grid',
   templateUrl: './mat-multi-select-grid.component.html',
   styleUrls: ['./mat-multi-select-grid.component.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -27,7 +27,7 @@ export class MatMultiSelectGridComponent implements OnInit, ControlValueAccessor
   @Input() gutterSize = '1px';
 
   @Input() bindLabel;
-  @Input() showClearButton: boolean;
+  @Input() showClearButton = true;
 
   @Input() listItems: any[] = [];
 
@@ -37,9 +37,9 @@ export class MatMultiSelectGridComponent implements OnInit, ControlValueAccessor
   value: any[] = [];
   selectedItemsCount = 0;
 
-  @Output() addEvent: EventEmitter<any> = new EventEmitter();
-  @Output() removeEvent: EventEmitter<any> = new EventEmitter();
-  @Output() clearEvent: EventEmitter<any> = new EventEmitter();
+  @Output() select: EventEmitter<any> = new EventEmitter();
+  @Output() remove: EventEmitter<any> = new EventEmitter();
+  @Output() clearAll: EventEmitter<any> = new EventEmitter();
 
   onChange: any = () => {};
   onTouched: any = () => {};
@@ -78,9 +78,9 @@ export class MatMultiSelectGridComponent implements OnInit, ControlValueAccessor
       this.changeInValue();
 
       if (gridItem.selected) {
-          this.addEvent.emit(gridItem);
+          this.select.emit(gridItem);
       } else {
-          this.removeEvent.emit(gridItem);
+          this.remove.emit(gridItem);
       }
   }
 
@@ -91,7 +91,7 @@ export class MatMultiSelectGridComponent implements OnInit, ControlValueAccessor
       this.selectedItemsCount = 0;
       this.changeInValue();
 
-      this.clearEvent.emit();
+      this.clearAll.emit();
 
   }
 

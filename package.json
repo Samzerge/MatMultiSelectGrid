@@ -1,5 +1,5 @@
 {
-  "name": "mat-mulit-select-grid-project",
+  "name": "mat-multi-select-grid-project",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,13 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build_lib": "ng build mat-multi-select-grid",
+    "copy-license": "copy .\\LICENSE .\\dist\\mat-multi-select-grid",
+    "copy-readme": "copy .\\README.md .\\dist\\mat-multi-select-grid",
+    "copy-files": "npm run copy-license && npm run copy-readme",
+    "npm_pack": "cd dist/mat-multi-select-grid && npm pack",
+    "package": "npm run build_lib && npm run copy-files && npm run npm_pack"
   },
   "private": true,
   "dependencies": {
